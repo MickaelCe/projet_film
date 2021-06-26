@@ -6,14 +6,17 @@ Projet pour l'ACS (Non commencé)
 Consignes du projet : 
 Etape 1:
 Désigner un master (unique à toute la promo) sur github qui créera un csv avec :
-● le titre
-● la description
-● l’année de sortie
-● le genre
-● le réalisateur
+*le titre
+*la description
+*l’année de sortie
+*le genre
+*le réalisateur
+
 Chacun doit Forker le projet et ajouter 3 films avec une pull request
+
 Etape 2:
-Développement du site en MVC
+
+*Développement du site en MVC
 
 
 ## Techno utilisés  
