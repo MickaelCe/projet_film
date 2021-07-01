@@ -1,5 +1,5 @@
 # Projet_film
-Projet pour l'ACS (Non commencé)
+Projet pour l'ACS
 
 ## Description  
 
@@ -29,6 +29,7 @@ Etape 2:
 * HTML5
 * CSS3
 * JS
+* PHP7
 
 ## Collaborateurs
 * [CECEN Mickael](https://github.com/MickaelCe)
