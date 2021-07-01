@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROJET F</title>
+    <link rel="shortcut icon" type="" href="" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!--------------------------------------------- AOS -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!--------------------------------------------- FONT AWESOME -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!--------------------------------------------- NAV -->
+
+    <nav>
+      <div class="logo">
+        <h1>PROJET <span class="gold">F</span></h1>
+      </div>
+      <input class="search" placeholder="Chercher un film..." />
+      <div id="livesearch"></div>
+    </nav>
+    <!--------------------------------------------- HERO -->
+
+    <section class="hero-section">
+      <div id="container">
+        <div class="vignette"></div>
+        <ul id="slides">
+          <li class="slide">
+            <div class="slide-partial slide-left">
+              <img src="./images/cinema_left.png" />
+            </div>
+            <div class="slide-partial slide-right">
+              <img src="./images/cinema_right.png" />
+            </div>
+            <h2 class="title">
+              <span class="title-text"
+                >Projet <span class="gold">F</span>, le site qui va vous faire
+                redécouvrir le cinéma.</span
+              >
+            </h2>
+          </li>
+          <li class="slide">
+            <div class="slide-partial slide-left">
+              <img src="./images/titanic_left.png" />
+            </div>
+            <div class="slide-partial slide-right">
+              <img src="./images/titanic_right.png" />
+            </div>
+            <h2 class="title">
+              <span class="title-text"
+                >"Trois consonnes, quatre voyelles et un seul sens : PROJET
+                <span class="gold">F</span>."
+                <p>[ James Cameron - Titanic ]</p></span
+              >
+            </h2>
+          </li>
+          <li class="slide">
+            <div class="slide-partial slide-left">
+              <img src="./images/clint_eastwood_left.png" />
+            </div>
+            <div class="slide-partial slide-right">
+              <img src="./images/clint_eastwood_right.png" />
+            </div>
+            <h2 class="title">
+              <span class="title-text"
+                >"Tu vois, le monde se divise en deux catégories: PROJET
+                <span class="gold">F</span>"
+                <p>
+                  [ Clint Eastwood - Le bon, la brute et le truand, de Sergio
+                  Leone ]
+                </p></span
+              >
+            </h2>
+          </li>
+          <li class="slide">
+            <div class="slide-partial slide-left">
+              <img src="./images/la_cite_de_la_peur_left.png" />
+            </div>
+            <div class="slide-partial slide-right">
+              <img src="./images/la_cite_de_la_peur_right.png" />
+            </div>
+            <h2 class="title">
+              <span class="title-text"
+                >"-Vous voulez un whisky ?<br />
+                -PROJET <span class="gold">F</span>.<br />
+                -Vous ne voulez pas un whisky d’abord ?
+                <p>
+                  [ Gérard Darmon et Chantal Aubry - La cité de la peur, d’Alain
+                  Berbérian ]
+                </p></span
+              >
+            </h2>
+          </li>
+        </ul>
+        <ul id="slide-select">
+          <li class="selector"></li>
+          <li class="selector"></li>
+          <li class="selector"></li>
+          <li class="selector"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!--------------------------------------------- CATEGORIE -->
+
+    <section class="categorie-section">
+      <!--------------------------------------------- CATEGORIE 1 -->
+
+      <article class="categorie-article">
+        <h2>CATEGORIE</h2>
+        <ul class="categorie-slider">
+          <li class="movie-item" href="#modal1">
+            <div
+              class="movie-item-affiche"
+              style="background: url(./images/affiche_test.jpg) top/cover"
+            ></div>
+            <div class="movie-item-infos">
+              <h3>TITRE</h3>
+              <h4>DATE</h4>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <!--------------------------------------------- MODAL -->
+
+    <div class="modal-overlay" id="modal1">
+      <div class="modal-container">
+        <article class="modal-projet">
+          <div class="modal-projet-img">
+            <h2>film1</h2>
+            <img src="./images/affiche_test.jpg" alt="" />
+          </div>
+          <div class="modal-projet-infos">
+            <p>DESC1</p>
+            <a href="" target="blank">Aller </a>
+          </div>
+          <button class="close-btn"><i class="fas fa-times"></i></button>
+        </article>
+      </div>
+    </div>
+
+    <!--------------------------------------------- FOOTER -->
+
+    <footer>
+      <div class="logo-footer">PROJET <span class="gold">F</span></div>
+      <div class="footer-grid">
+        <article class="admin-article">
+          <div class="admin">
+            <h5>Mickael Cecen</h5>
+            <a
+              class="social-icon"
+              href="https://github.com/MickaelCe"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              class="social-icon"
+              href="https://www.linkedin.com/in/mickaelcecen/"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          <div class="admin">
+            <h5>Margaux Coppi</h5>
+            <a
+              class="social-icon"
+              href="https://github.com/margauxc25"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              class="social-icon"
+              href="https://www.linkedin.com/in/margaux-llorens-coppi-751676210/"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          <div class="admin">
+            <h5>Raphaël Dorce</h5>
+            <a
+              class="social-icon"
+              href="https://github.com/DorceRaphael"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              class="social-icon"
+              href="https://www.linkedin.com/in/raphael-dorce-524a32148/"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </article>
+        <article class="seo-article">
+          <p>blablabla</p>
+          <p>blablabla</p>
+          <p>blablabla</p>
+        </article>
+        <article class="copyright-article">
+          <h6>COPYRIGHT</h6>
+        </article>
+      </div>
+    </footer>
+
+    <!--------------------------------------------- AOS -->
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!--------------------------------------------- JQUERY -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--------------------------------------------- SCRIPT -->
+
+    <script src="app.js"></script>
+  </body>
+</html>
