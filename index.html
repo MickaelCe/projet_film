@@ -8,12 +8,22 @@
     <link rel="shortcut icon" type="" href="" />
     <link rel="stylesheet" href="style.css" />
 
-    <!--------------------------------------------- AOS -->
+    <!--------------------------------------------- SLICK -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./slick-1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./slick-1.8.1/slick/slick-theme.css"
+    />
 
+    <!--------------------------------------------- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!--------------------------------------------- FONT AWESOME -->
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -27,10 +37,41 @@
         <h1>PROJET <span class="gold">F</span></h1>
       </div>
       <input class="search" placeholder="Chercher un film..." />
-      <div id="livesearch"></div>
     </nav>
-    <!--------------------------------------------- HERO -->
+    <!--------------------------------------------- LIVESEARCH MODAL -->
 
+    <ul class="livesearch">
+      <li class="livesearch-item">
+        <img src="./images/affiche_test.jpg" alt="" />
+        <div>
+          <h3>TITRE</h3>
+          <h4>DATE</h4>
+        </div>
+      </li>
+      <li class="livesearch-item">
+        <img src="./images/affiche_test.jpg" alt="" />
+        <div>
+          <h3>TITRE</h3>
+          <h4>DATE</h4>
+        </div>
+      </li>
+      <li class="livesearch-item">
+        <img src="./images/affiche_test.jpg" alt="" />
+        <div>
+          <h3>TITRE</h3>
+          <h4>DATE</h4>
+        </div>
+      </li>
+      <li class="livesearch-item">
+        <img src="./images/affiche_test.jpg" alt="" />
+        <div>
+          <h3>TITRE</h3>
+          <h4>DATE</h4>
+        </div>
+      </li>
+    </ul>
+
+    <!--------------------------------------------- HERO -->
     <section class="hero-section">
       <div id="container">
         <div class="vignette"></div>
@@ -115,21 +156,78 @@
 
     <section class="categorie-section">
       <!--------------------------------------------- CATEGORIE 1 -->
-
       <article class="categorie-article">
         <h2>CATEGORIE</h2>
-        <ul class="categorie-slider">
+
+        <!--------------------------------------------- SLICK TEST -->
+        <div class="categorie-slider">
           <li class="movie-item" href="#modal1">
-            <div
+            <img
               class="movie-item-affiche"
-              style="background: url(./images/affiche_test.jpg) top/cover"
-            ></div>
+              src="./images/affiche_test.jpg"
+              alt=""
+            />
             <div class="movie-item-infos">
               <h3>TITRE</h3>
               <h4>DATE</h4>
             </div>
           </li>
-        </ul>
+          <li class="movie-item" href="#modal1">
+            <img
+              class="movie-item-affiche"
+              src="./images/affiche_test.jpg"
+              alt=""
+            />
+            <div class="movie-item-infos">
+              <h3>TITRE</h3>
+              <h4>DATE</h4>
+            </div>
+          </li>
+          <li class="movie-item" href="#modal1">
+            <img
+              class="movie-item-affiche"
+              src="./images/affiche_test.jpg"
+              alt=""
+            />
+            <div class="movie-item-infos">
+              <h3>TITRE</h3>
+              <h4>DATE</h4>
+            </div>
+          </li>
+          <li class="movie-item" href="#modal1">
+            <img
+              class="movie-item-affiche"
+              src="./images/affiche_test.jpg"
+              alt=""
+            />
+            <div class="movie-item-infos">
+              <h3>TITRE</h3>
+              <h4>DATE</h4>
+            </div>
+          </li>
+          <li class="movie-item" href="#modal1">
+            <img
+              class="movie-item-affiche"
+              src="./images/affiche_test.jpg"
+              alt=""
+            />
+            <div class="movie-item-infos">
+              <h3>TITRE</h3>
+              <h4>DATE</h4>
+            </div>
+          </li>
+          <li class="movie-item" href="#modal1">
+            <img
+              class="movie-item-affiche"
+              src="./images/affiche_test.jpg"
+              alt=""
+            />
+            <div class="movie-item-infos">
+              <h3>TITRE</h3>
+              <h4>DATE</h4>
+            </div>
+          </li>
+        </div>
       </article>
     </section>
 
@@ -137,15 +235,11 @@
 
     <div class="modal-overlay" id="modal1">
       <div class="modal-container">
-        <article class="modal-projet">
-          <div class="modal-projet-img">
-            <h2>film1</h2>
-            <img src="./images/affiche_test.jpg" alt="" />
-          </div>
-          <div class="modal-projet-infos">
-            <p>DESC1</p>
-            <a href="" target="blank">Aller </a>
-          </div>
+        <article class="modal-movie">
+          <h2>TITRE</h2>
+          <h3>DATE</h3>
+          <img src="./images/affiche_test.jpg" alt="" />
+          <p>DESCRIPTION</p>
           <button class="close-btn"><i class="fas fa-times"></i></button>
         </article>
       </div>
@@ -209,30 +303,26 @@
             </a>
           </div>
         </article>
-        <article class="seo-article">
-          <p>blablabla</p>
-          <p>blablabla</p>
-          <p>blablabla</p>
-        </article>
+        <article class="seo-article"></article>
         <article class="copyright-article">
-          <h6>COPYRIGHT</h6>
+          <h6>COPYRIGHT 2021</h6>
         </article>
       </div>
     </footer>
 
     <!--------------------------------------------- AOS -->
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
-
     <!--------------------------------------------- JQUERY -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <!--------------------------------------------- SLICK -->
+    <script
+      type="text/javascript"
+      src="./slick-1.8.1/slick/slick.min.js"
+    ></script>
     <!--------------------------------------------- SCRIPT -->
-
     <script src="app.js"></script>
   </body>
 </html>

@@ -1,38 +1,15 @@
-/*------------------------------------------- SEARCH */
+/*------------------------------------------- NAV DISPARITION ON SCROLL DOWN */
 
-// var search = document.addEventListener("keyup", function () {
-//   showResult(this.value);
-// });
-
-function showResult(str) {
-  if (str.length == 0) {
-    document.getElementById("livesearch").innerHTML = "";
-    document.getElementById("livesearch").style.border = "0px";
-    return;
-  }
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("livesearch").innerHTML = this.responseText;
-      document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
-    }
-  };
-  xmlhttp.open("GET", "livesearch.php?q=" + str, true);
-  xmlhttp.send();
-}
-
-/*------------------------------------------- NAV SCROLL */
-
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.querySelector("nav").style.top = "0";
-  } else {
-    document.querySelector("nav").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-};
+// var prevScrollpos = window.pageYOffset;
+// window.onscroll = function () {
+//   var currentScrollPos = window.pageYOffset;
+//   if (prevScrollpos > currentScrollPos) {
+//     document.querySelector("nav").style.top = "0";
+//   } else {
+//     document.querySelector("nav").style.top = "-100px";
+//   }
+//   prevScrollpos = currentScrollPos;
+// };
 
 /*------------------------------------------- SLIDESHOW */
 
@@ -129,3 +106,12 @@ window.onclick = function (event) {
     }
   }
 };
+
+/*------------------------------------------- SLICK */
+
+$(".categorie-slider").slick({
+  variableWidth: true,
+  arrows: true,
+  infinite: true,
+  speed: 300,
+});
