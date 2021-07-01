@@ -20,13 +20,13 @@ var_dump($url);
 // }
 
 switch ($url) {
-    case $url[2] == '':   
+    case $url[3] == '':   
         echo 'Home page';
     break;    
-    case $url[2] == 'film' AND !empty($url[3]):
-        echo 'Film numéro '.$url[3];
+    case $url[3] == 'film' AND !empty($url[4]):
+        echo 'Film numéro '.$url[4];
     break;
-    case $url[2] == 'film':
+    case $url[3] == 'film':
         echo 'LA page des films';
     break;
     default:
