@@ -1,3 +1,17 @@
+<?php
+include "connexion.php";
+
+$stmt = $pdo->prepare(
+    "SELECT * FROM movie_infos"
+);
+$stmt->execute();
+$movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -161,6 +175,8 @@
           data-aos-duration="500"
           data-aos-once="true"
         >
+
+        <?php foreach($movies as $movie): ?>
           <li class="movie-item" href="#modal1">
             <img
               class="movie-item-affiche"
@@ -168,65 +184,18 @@
               alt=""
             />
             <div class="movie-item-infos">
-              <h3>TITRE</h3>
-              <h4>DATE</h4>
+              <h3>
+                <?php
+                  echo $movie["titre"];
+                ?>
+              </h3>
+              <h4><?php
+                  echo $movie["annee"];
+                ?></h4>
             </div>
           </li>
-          <li class="movie-item" href="#modal1">
-            <img
-              class="movie-item-affiche"
-              src="./images/affiche_test.jpg"
-              alt=""
-            />
-            <div class="movie-item-infos">
-              <h3>TITRE</h3>
-              <h4>DATE</h4>
-            </div>
-          </li>
-          <li class="movie-item" href="#modal1">
-            <img
-              class="movie-item-affiche"
-              src="./images/affiche_test.jpg"
-              alt=""
-            />
-            <div class="movie-item-infos">
-              <h3>TITRE</h3>
-              <h4>DATE</h4>
-            </div>
-          </li>
-          <li class="movie-item" href="#modal1">
-            <img
-              class="movie-item-affiche"
-              src="./images/affiche_test.jpg"
-              alt=""
-            />
-            <div class="movie-item-infos">
-              <h3>TITRE</h3>
-              <h4>DATE</h4>
-            </div>
-          </li>
-          <li class="movie-item" href="#modal1">
-            <img
-              class="movie-item-affiche"
-              src="./images/affiche_test.jpg"
-              alt=""
-            />
-            <div class="movie-item-infos">
-              <h3>TITRE</h3>
-              <h4>DATE</h4>
-            </div>
-          </li>
-          <li class="movie-item" href="#modal1">
-            <img
-              class="movie-item-affiche"
-              src="./images/affiche_test.jpg"
-              alt=""
-            />
-            <div class="movie-item-infos">
-              <h3>TITRE</h3>
-              <h4>DATE</h4>
-            </div>
-          </li>
+        <?php endforeach; ?>
+          
         </div>
       </article>
     </section>

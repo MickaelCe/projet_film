@@ -309,8 +309,7 @@ nav h1 {
   margin-bottom: 1rem;
   background: #393e41;
   border-radius: 15px;
-  height: 16rem;
-  width: 10rem;
+  width: 12.5rem;
   margin-right: 1rem;
 }
 
@@ -322,14 +321,19 @@ nav h1 {
 .movie-item-infos {
   border-top: 2px solid #c38011;
   color: #eec076;
-  height: 25%;
+  height: 7.5rem;
   padding: 0.5rem;
   background: #212425;
   border-radius: 0 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .movie-item-infos h3 {
+  font-size: 1rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .movie-item-infos h4 {
