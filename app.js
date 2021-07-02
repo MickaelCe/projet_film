@@ -69,7 +69,7 @@ $(() => {
 /*------------------------------------------- MODAL */
 
 // Get the button that opens the modal
-var modalBtn = document.querySelectorAll(".movie-item");
+var modalBtn = document.querySelectorAll(".movie-item,.livesearch-item");
 // All page modals
 var modals = document.querySelectorAll(".modal-overlay");
 // Get the <span> element that closes the modal
