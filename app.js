@@ -66,52 +66,107 @@ $(() => {
   });
 });
 
-/*------------------------------------------- MODAL */
-
-// Get the button that opens the modal
-var modalBtn = document.querySelectorAll(".movie-item,.livesearch-item");
-// All page modals
-var modals = document.querySelectorAll(".modal-overlay");
-// Get the <span> element that closes the modal
-var closeBtn = document.querySelectorAll(".close-btn");
-
-// When the user clicks the button, open the modal
-for (var i = 0; i < modalBtn.length; i++) {
-  modalBtn[i].onclick = function (e) {
-    e.preventDefault();
-    modal = document.querySelector(e.currentTarget.getAttribute("href"));
-    $(modal).fadeIn();
-    $("nav").fadeOut();
-  };
-}
-
-// When the user clicks on <span> (x), close the modal
-for (var i = 0; i < closeBtn.length; i++) {
-  closeBtn[i].onclick = function () {
-    for (var index in modals) {
-      if (typeof modals[index].style !== "undefined")
-        $(modals[index]).fadeOut();
-      $("nav").fadeIn();
-    }
-  };
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target.classList.contains("modal-overlay")) {
-    for (var index in modals) {
-      if (typeof modals[index].style !== "undefined")
-        $(modals[index]).fadeOut();
-      $("nav").fadeIn();
-    }
-  }
-};
-
 /*------------------------------------------- SLICK */
 
 $(".categorie-slider").slick({
   variableWidth: true,
   arrows: true,
-  infinite: true,
-  speed: 300,
+  infinite: false,
+  speed: 500,
+  swipeToSlide: true,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToScroll: 1,
+      },
+    },
+  ],
+});
+
+/*------------------------------------------- MODAL AJAX */
+
+var id = "";
+
+var modalBtns = document.querySelectorAll(".movie-item,.livesearch-item");
+
+modalBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // slice pour retirer le #
+    id = e.currentTarget.getAttribute("href").slice(1);
+    loadModal();
+  });
+});
+
+function loadModal() {
+  $(document).ready(function () {
+    $.ajax({
+      success: function () {
+        $(".modal-section").load("./modal.php?id=" + id);
+      },
+    });
+  });
+
+  // NO JQUERY MAIS BUG JS
+  // var xhr = new XMLHttpRequest();
+  // xhr.open("GET", "./modal.php?id=" + id);
+  // xhr.onload = function () {
+  //   if (xhr.status === 200) {
+  //     document.querySelector(".modal-section").innerHTML = xhr.responseText;
+  //   } else {
+  //     console.log(xhr.status);
+  //   }
+  // };
+  // xhr.send();
+}
+
+/*------------------------------------------- CLOSE MODAL */
+window.onclick = function (e) {
+  if (e.target.classList.contains("modal-overlay")) {
+    document.querySelector(".modal-section").textContent = "";
+  }
+};
+
+/*------------------------------------------- LIVESEARCH */
+
+var search = "";
+
+$("#search_text").keyup(function () {
+  search = $(this).val();
+  // Remplacer les espaces par des _ pour la recherche PHP
+  search = search.replace(/ /g, "_");
+  loadSearch();
+});
+
+function loadSearch() {
+  $(document).ready(function () {
+    $.ajax({
+      success: function () {
+        $(".livesearch-section").load("./fetch.php?search=" + search);
+      },
+    });
+  });
+}
+
+/*------------------------------------------- CLOSE LIVESEARCH */
+
+$(document).click(function (e) {
+  if (e.target.classList.contains("search")) {
+    $(".livesearch-section").fadeIn(500);
+  } else {
+    $(".livesearch-section").fadeOut(500);
+  }
 });

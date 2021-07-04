@@ -11,7 +11,7 @@
 }
 
 body {
-  background: #141414;
+  background: black;
   color: white;
   font-family: "Dosis", sans-serif;
   font-size: 1rem;
@@ -72,7 +72,7 @@ nav {
   transition: top 0.3s;
   padding: 1rem 0.5rem;
   border-bottom: 2px solid #c38011;
-  z-index: 14;
+  z-index: 13;
 }
 
 nav h1 {
@@ -93,18 +93,22 @@ nav h1 {
   outline: none;
 }
 
-.livesearch {
+.search:focus {
+  border: 2px solid #c38011;
+}
+
+.livesearch-section {
   top: 4rem;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, 0);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 25px rgb(0 0 0 / 25%), 0 10px 25px rgb(0 0 0 / 50%);
   border-radius: 10px;
   background-color: #141414;
-  width: 75vw;
+  width: 90vw;
   position: fixed;
   max-height: 100%;
   overflow-y: auto;
-  z-index: 20;
+  z-index: 14;
 }
 
 .livesearch-item {
@@ -152,6 +156,14 @@ nav h1 {
   background: #393e41;
 }
 
+.livesearch-no-results {
+  display: flex;
+  padding: 1rem;
+}
+.no-results {
+  font-size: 1.25rem;
+}
+
 /*------------------------------------------- HERO SLIDESHOW */
 
 .hero-section {
@@ -172,7 +184,7 @@ nav h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 1) inset;
+  box-shadow: 0 0 250px rgba(0, 0, 0, 1) inset;
 }
 
 #slides {
@@ -212,7 +224,7 @@ nav h1 {
 }
 
 #slides .slide .slide-partial {
-  opacity: 0.5;
+  opacity: 0.25;
   position: absolute;
   width: 50%;
   height: 100%;
@@ -296,20 +308,23 @@ nav h1 {
 /*------------------------------------------- CATEGORIE */
 
 .categorie-section {
-  padding: 4rem 0;
+  padding: 5rem 0;
+  background: #141414;
+}
+
+.categorie-article {
   width: 80vw;
-  margin: 0 auto;
+  margin: 0 auto 4rem;
 }
 
 .categorie-article h2 {
-  margin: 1.5rem 0;
+  margin: 0 0 1.5rem;
 }
 
 .movie-item {
-  margin-bottom: 1rem;
   background: #393e41;
   border-radius: 15px;
-  width: 12.5rem;
+  width: 10rem;
   margin-right: 1rem;
 }
 
@@ -321,7 +336,7 @@ nav h1 {
 .movie-item-infos {
   border-top: 2px solid #c38011;
   color: #eec076;
-  height: 7.5rem;
+  height: 5rem;
   padding: 0.5rem;
   background: #212425;
   border-radius: 0 0 15px 15px;
@@ -331,16 +346,8 @@ nav h1 {
 .movie-item-infos h3 {
   align-self: center;
   font-size: 1rem;
-  font-weight: 600;
   text-align: center;
   vertical-align: center;
-}
-
-.movie-item-infos h4 {
-  align-self: flex-end;
-  font-weight: 400;
-  font-size: 0.9rem;
-  text-align: center;
 }
 
 /*------------------------------------------- MODAL */
@@ -352,13 +359,13 @@ nav h1 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: none;
-  z-index: 13;
+  z-index: 15;
 }
 
 .modal-container {
   top: 50%;
   left: 50%;
+  margin-top: 1rem;
   transform: translate(-50%, -50%);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
@@ -378,16 +385,17 @@ nav h1 {
     "titre"
     "date"
     "affiche"
-    "descr";
+    "descr"
+    "real";
   justify-items: center;
+  align-items: center;
   column-gap: 1rem;
   row-gap: 1rem;
 }
 
 .modal-movie h2 {
   grid-area: titre;
-  font-size: 1.2rem;
-  text-align: center;
+  font-size: 1.5rem;
 }
 
 .modal-movie h2::first-letter {
@@ -396,8 +404,7 @@ nav h1 {
 
 .modal-movie h3 {
   grid-area: date;
-  font-size: 1rem;
-  text-align: center;
+  font-size: 1.25rem;
 }
 
 .modal-movie h3::first-letter {
@@ -417,6 +424,15 @@ nav h1 {
 }
 
 .modal-movie p::first-letter {
+  color: #eec076;
+}
+
+.modal-movie h4 {
+  grid-area: real;
+  font-size: 1.1rem;
+}
+
+.modal-movie h4::first-letter {
   color: #eec076;
 }
 
@@ -537,14 +553,24 @@ footer {
 /*------------------------------------------- RESPONSIVE */
 
 @media screen and (min-width: 768px) {
+  .livesearch-section {
+    left: 60%;
+    width: 75vw;
+  }
+
   .modal-movie {
     grid-template-areas:
       "affiche titre date"
       "affiche descr descr"
-      "affiche descr descr";
+      "affiche real real";
     column-gap: 1rem;
-    grid-template-columns: 30% 50% 20%;
+    grid-template-columns: 30% 50% 15%;
     justify-items: left;
+    align-items: center;
+  }
+
+  .modal-movie h3 {
+    justify-self: right;
   }
 
   .not-found h2 {

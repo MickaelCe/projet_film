@@ -5,10 +5,10 @@ $password = "123456";
 $dbname = "movie";
 $charset = "utf8";
 
-// Set DSN
+//Data Source Name
 $dsn = "mysql:host=" . $host . ";dbname=" . $dbname . ";charset=" . $charset;
 
-// Create a PDO instance
+// Instance PDO
 $pdo = new PDO($dsn, $user, $password);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);

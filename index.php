@@ -1,12 +1,9 @@
 <?php
 include "connexion.php";
 
-$stmt = $pdo->prepare(
-    "SELECT * FROM movie_infos"
-);
-$stmt->execute();
+$stmt = $pdo->prepare("SELECT * FROM movie_infos WHERE genre LIKE :genre");
+$stmt->execute(["genre" => "%comedie%"]);
 $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 
@@ -22,7 +19,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="shortcut icon" type="" href="" />
     <link rel="stylesheet" href="style.css" />
 
-    <!--------------------------------------------- SLICK -->
+    <!--------------------------------------------- SLICK SLIDER -->
     <link
       rel="stylesheet"
       type="text/css"
@@ -46,37 +43,15 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <body>
     <!--------------------------------------------- NAV -->
 
-    <nav>
+    <nav class="nav">
       <div class="logo">
         <h1>PROJET <span class="gold">F</span></h1>
       </div>
-      <input class="search" placeholder="Chercher un film..." />
+      <input class="search" name="search_text" id="search_text" placeholder="Chercher un film..." autocomplete="off"/>
     </nav>
-    <!--------------------------------------------- LIVESEARCH MODAL -->
+    <!--------------------------------------------- LIVESEARCH -->
 
-    <ul class="livesearch display-none">
-      <li class="livesearch-item" href="#modal1">
-        <img src="./images/affiche_test.jpg" alt="" />
-        <div>
-          <h3>TITRE</h3>
-          <h4>DATE</h4>
-        </div>
-      </li>
-      <li class="livesearch-item" href="#modal1">
-        <img src="./images/affiche_test.jpg" alt="" />
-        <div>
-          <h3>TITRE</h3>
-          <h4>DATE</h4>
-        </div>
-      </li>
-      <li class="livesearch-item" href="#modal1">
-        <img src="./images/affiche_test.jpg" alt="" />
-        <div>
-          <h3>TITRE</h3>
-          <h4>DATE</h4>
-        </div>
-      </li>
-    </ul>
+    <section class="livesearch-section"></section>
 
     <!--------------------------------------------- HERO -->
     <section class="hero-section">
@@ -165,7 +140,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <!--------------------------------------------- CATEGORIE 1 -->
       <article class="categorie-article">
         <h2 data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
-          CATEGORIE
+          COMÉDIE
         </h2>
 
         <!--------------------------------------------- SLICK SLIDER -->
@@ -176,22 +151,73 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
           data-aos-once="true"
         >
 
-        <?php foreach($movies as $movie): ?>
-          <li class="movie-item" href="#modal1">
+        <?php foreach ($movies as $movie): ?>
+          <li class="movie-item" href="#<?php echo $movie["id"]; ?>">
             <img
               class="movie-item-affiche"
               src="./images/affiche_test.jpg"
               alt=""
             />
             <div class="movie-item-infos">
-              <h3>
-                <?php
-                  echo $movie["titre"];
-                ?>
-              </h3>
-              <h4><?php
-                  echo $movie["annee"];
-                ?></h4>
+              <h3><?php echo $movie["titre"]; ?></h3>
+            </div>
+          </li>
+        <?php endforeach; ?>
+          
+        </div>
+      </article>
+      <!--------------------------------------------- CATEGORIE 1 -->
+      <article class="categorie-article">
+        <h2 data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
+          COMÉDIE
+        </h2>
+
+        <!--------------------------------------------- SLICK SLIDER -->
+        <div
+          class="categorie-slider"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+
+        <?php foreach ($movies as $movie): ?>
+          <li class="movie-item" href="#<?php echo $movie["id"]; ?>">
+            <img
+              class="movie-item-affiche"
+              src="./images/affiche_test2.jpg"
+              alt=""
+            />
+            <div class="movie-item-infos">
+              <h3><?php echo $movie["titre"]; ?></h3>
+            </div>
+          </li>
+        <?php endforeach; ?>
+          
+        </div>
+      </article>
+      <!--------------------------------------------- CATEGORIE 1 -->
+      <article class="categorie-article">
+        <h2 data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
+          COMÉDIE
+        </h2>
+
+        <!--------------------------------------------- SLICK SLIDER -->
+        <div
+          class="categorie-slider"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+
+        <?php foreach ($movies as $movie): ?>
+          <li class="movie-item" href="#<?php echo $movie["id"]; ?>">
+            <img
+              class="movie-item-affiche"
+              src="./images/affiche_test3.jpg"
+              alt=""
+            />
+            <div class="movie-item-infos">
+              <h3><?php echo $movie["titre"]; ?></h3>
             </div>
           </li>
         <?php endforeach; ?>
@@ -202,17 +228,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <!--------------------------------------------- MODAL -->
 
-    <div class="modal-overlay" id="modal1">
-      <div class="modal-container">
-        <article class="modal-movie">
-          <h2>TITRE</h2>
-          <h3>DATE</h3>
-          <img src="./images/affiche_test.jpg" alt="" />
-          <p>DESCRIPTION</p>
-          <button class="close-btn"><i class="fas fa-times"></i></button>
-        </article>
-      </div>
-    </div>
+    <section class="modal-section"></section>
 
     <!--------------------------------------------- FOOTER -->
 
@@ -221,8 +237,8 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
         class="logo-footer"
         data-aos="fade-up"
         data-aos-duration="500"
-        data-aos-delay="0"
-        data-aos-once="true"
+        data-aos-dela ="0"
+        data-aos-anchor="footer"
       >
         PROJET <span class="gold">F</span>
       </div>
@@ -233,7 +249,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
             data-aos="fade-up"
             data-aos-duration="500"
             data-aos-delay="100"
-            data-aos-once="true"
+            data-aos-anchor="footer"
           >
             <h5>Mickael Cecen</h5>
             <a
@@ -241,11 +257,11 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
               href="https://github.com/MickaelCe"
               target="_blank"
             >
-              <i class="fab fa-github"></i>
+            <i class="fab fa-github"></i>
             </a>
             <a
               class="social-icon"
-              href="https://www.linkedin.com/in/mickaelcecen/"
+              href="https://www.linkedin.com/inmickaelcecen/"
               target="_blank"
             >
               <i class="fab fa-linkedin"></i>
@@ -256,7 +272,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
             data-aos="fade-up"
             data-aos-duration="500"
             data-aos-delay="200"
-            data-aos-once="true"
+            data-aos-anchor="footer"
           >
             <h5>Margaux Coppi</h5>
             <a
@@ -264,14 +280,14 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
               href="https://github.com/margauxc25"
               target="_blank"
             >
-              <i class="fab fa-github"></i>
+            <i class="fab fa-github"></i>
             </a>
             <a
               class="social-icon"
-              href="https://www.linkedin.com/in/margaux-llorens-coppi-751676210/"
+              href="https://ww.linkedin.com/in/margaux-llorens-copi-751676210/"
               target="_blank"
             >
-              <i class="fab fa-linkedin"></i>
+            <i class="fab fa-linkedin"></i>
             </a>
           </div>
           <div
@@ -279,7 +295,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
             data-aos="fade-up"
             data-aos-duration="500"
             data-aos-delay="300"
-            data-aos-once="true"
+            data-aos-anchor="footer"
           >
             <h5>Raphaël Dorce</h5>
             <a
@@ -287,7 +303,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
               href="https://github.com/DorceRaphael"
               target="_blank"
             >
-              <i class="fab fa-github"></i>
+            <i class="fab fa-github"></i>
             </a>
             <a
               class="social-icon"
@@ -312,7 +328,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </script>
     <!--------------------------------------------- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--------------------------------------------- SLICK -->
+    <!--------------------------------------------- SLICK SLIDER -->
     <script
       type="text/javascript"
       src="./slick-1.8.1/slick/slick.min.js"
