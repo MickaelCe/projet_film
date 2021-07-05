@@ -18,7 +18,12 @@ INNER JOIN sorties ON films.date_id_date_de_sortie = sorties.id_date_de_sortie
 WHERE titre LIKE '%$search%'
 GROUP BY films.titre, films.synopsis, films.date_id_date_de_sortie
 ");
-$sth->execute();
+$sth->execute([
+    "search1" => $search,
+    "search2" => $search,
+    "search3" => $search,
+    "search4" => $search,
+]);
 
 
 $test = $sth->fetchAll(PDO::FETCH_NUM);
