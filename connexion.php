@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$user = "movieman";
-$password = "123456";
-$dbname = "movie";
+$user = "margauxcoppi";
+$password = "@Marslab2506";
+$dbname = "film_db";
 $charset = "utf8";
 
 //Data Source Name

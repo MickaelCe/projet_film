@@ -1,9 +1,30 @@
 <?php
 include "connexion.php";
 
-$stmt = $pdo->prepare("SELECT * FROM movie_infos WHERE genre LIKE :genre");
+$stmt = $pdo->prepare("SELECT films.id_film, films.titre, films.synopsis, sorties.sortie, films.images,
+group_concat(DISTINCT genres.genre) as genre,
+group_concat(DISTINCT realisateurs.realisateur) as realisateur 
+
+FROM films 
+
+INNER JOIN films_has_genres ON films_has_genres.films_id_film = films.id_film
+INNER JOIN genres ON films_has_genres.genres_id_genres = id_genres
+
+INNER JOIN films_has_realisateur ON films_has_realisateur.films_id_film = films.id_film
+INNER JOIN realisateurs ON films_has_realisateur.realisateur_id_realisateur = id_realisateur
+
+INNER JOIN sorties ON films.date_id_date_de_sortie = sorties.id_date_de_sortie
+
+WHERE genre LIKE :genre
+GROUP BY films.titre, films.synopsis, films.date_id_date_de_sortie, films.id_film, films.images");
 $stmt->execute(["genre" => "%comedie%"]);
 $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt->execute(["genre" => "%drame%"]);
+$movies2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt->execute(["genre" => "%animation%"]);
+$movies3 = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -152,10 +173,10 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
         >
 
         <?php foreach ($movies as $movie): ?>
-          <li class="movie-item" href="#<?php echo $movie["id"]; ?>">
+          <li class="movie-item" href="#<?php echo $movie["id_film"]; ?>">
             <img
               class="movie-item-affiche"
-              src="./images/affiche_test.jpg"
+              src="<?php echo $movie["images"]; ?>"
               alt=""
             />
             <div class="movie-item-infos">
@@ -169,7 +190,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <!--------------------------------------------- CATEGORIE 1 -->
       <article class="categorie-article">
         <h2 data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
-          COMÉDIE
+          DRAME
         </h2>
 
         <!--------------------------------------------- SLICK SLIDER -->
@@ -180,11 +201,11 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
           data-aos-once="true"
         >
 
-        <?php foreach ($movies as $movie): ?>
-          <li class="movie-item" href="#<?php echo $movie["id"]; ?>">
+        <?php foreach ($movies2 as $movie): ?>
+          <li class="movie-item" href="#<?php echo $movie["id_film"]; ?>">
             <img
               class="movie-item-affiche"
-              src="./images/affiche_test2.jpg"
+              src="<?php echo $movie["images"]; ?>"
               alt=""
             />
             <div class="movie-item-infos">
@@ -198,7 +219,7 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <!--------------------------------------------- CATEGORIE 1 -->
       <article class="categorie-article">
         <h2 data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
-          COMÉDIE
+          ANIMATION
         </h2>
 
         <!--------------------------------------------- SLICK SLIDER -->
@@ -209,11 +230,11 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
           data-aos-once="true"
         >
 
-        <?php foreach ($movies as $movie): ?>
-          <li class="movie-item" href="#<?php echo $movie["id"]; ?>">
+        <?php foreach ($movies3 as $movie): ?>
+          <li class="movie-item" href="#<?php echo $movie["id_film"]; ?>">
             <img
               class="movie-item-affiche"
-              src="./images/affiche_test3.jpg"
+              src="<?php echo $movie["images"]; ?>"
               alt=""
             />
             <div class="movie-item-infos">
