@@ -2,7 +2,7 @@
 include "connexion.php";
 
 $stmt = $pdo->prepare("SELECT films.id_film, films.titre, films.synopsis, sorties.sortie, films.images,
-group_concat(genres.genre) as genre,
+group_concat(DISTINCT genres.genre) as genre,
 group_concat(DISTINCT realisateurs.realisateur) as realisateur 
 
 FROM films 
