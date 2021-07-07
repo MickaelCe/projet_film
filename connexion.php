@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "margauxcoppi";
-$password = "@Marslab2506";
+$user = "movieman";
+$password = "123456";
 $dbname = "film_db";
 $charset = "utf8";
 

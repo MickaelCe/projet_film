@@ -75,6 +75,8 @@ $(".categorie-slider").slick({
   speed: 500,
   swipeToSlide: true,
   slidesToScroll: 4,
+  prevArrow: '<p class="prev"><</p>',
+  nextArrow: '<p class="next">></p>',
   responsive: [
     {
       breakpoint: 1024,
@@ -107,6 +109,7 @@ modalBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     // slice pour retirer le #
     id = e.currentTarget.getAttribute("href").slice(1);
+    console.log(e.currentTarget);
     loadModal();
   });
 });
@@ -165,8 +168,8 @@ function loadSearch() {
 
 $(document).click(function (e) {
   if (e.target.classList.contains("search")) {
-    $(".livesearch-section").fadeIn(500);
+    $(".livesearch-section").fadeIn(200);
   } else {
-    $(".livesearch-section").fadeOut(500);
+    $(".livesearch-section").fadeOut(200);
   }
 });

@@ -348,7 +348,34 @@ nav h1 {
   align-self: center;
   font-size: 1rem;
   text-align: center;
-  vertical-align: center;
+}
+
+.prev {
+  position: absolute;
+  left: -1.8rem;
+  top: 6rem;
+  z-index: 100;
+  color: #eec076;
+  background: none;
+  font-size: 4rem;
+  transition: all 0.5s;
+}
+
+.prev:hover {
+  color: #c38011;
+}
+
+.next {
+  position: absolute;
+  right: -1.8rem;
+  top: 6rem;
+  z-index: 100;
+  color: #eec076;
+  font-size: 4rem;
+  transition: all 0.5s;
+}
+.next:hover {
+  color: #c38011;
 }
 
 /*------------------------------------------- MODAL */
@@ -391,13 +418,13 @@ nav h1 {
     "genre";
   justify-items: center;
   align-items: center;
-  column-gap: 1rem;
   row-gap: 1rem;
 }
 
 .modal-movie h2 {
   grid-area: titre;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  text-align: center;
 }
 
 .modal-movie h2::first-letter {
@@ -406,7 +433,7 @@ nav h1 {
 
 .modal-movie h3 {
   grid-area: date;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .modal-movie h3::first-letter {
@@ -431,8 +458,8 @@ nav h1 {
 
 .modal-movie h4 {
   grid-area: real;
+  font-size: 1.2rem;
   align-self: flex-end;
-  font-size: 1.1rem;
 }
 
 .modal-movie h4::first-letter {
@@ -441,6 +468,7 @@ nav h1 {
 
 .modal-movie h6 {
   grid-area: genre;
+  font-size: 1.2rem;
   align-self: flex-end;
 }
 
@@ -574,18 +602,32 @@ footer {
     grid-template-areas:
       "affiche titre date"
       "affiche descr descr"
-      "affiche real genre";
-    column-gap: 1rem;
+      "affiche real real"
+      "affiche genre genre";
     grid-template-columns: 30% 50% 15%;
+    column-gap: 1rem;
+    row-gap: 0rem;
     justify-items: left;
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .modal-movie h2 {
+    text-align: left;
   }
 
   .modal-movie h3 {
     justify-self: right;
   }
 
+  .modal-movie p {
+    margin: 1rem 0;
+  }
+
   .not-found h2 {
     font-size: 5rem;
+  }
+
+  #slides .slide .title {
+    font-size: 1.75rem;
   }
 }
