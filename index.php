@@ -1,33 +1,26 @@
-<?php include_once 'includes/header.php' ?>
-
+<?php include "contenu_protégé/model/modelIndex.php";?>
 <?php
-var_dump($_SERVER);
-
 $url = '';
 if(isset($_SERVER['REQUEST_URI'])){
     $url = explode('/', $_SERVER['REQUEST_URI']);
 }
-
-var_dump($url);
-
 switch ($url) {
-    case $url[3] == '':   
-        echo 'Home page';
+    case $url[3] == '' || $url[3] == 'index.php':
+        include "contenu_protégé/includes/header.php";
+        include 'contenu_protégé/vue/vueIndex.php';
+        include "contenu_protégé/includes/footer.php";
     break; 
-    case $url[3] == 'film' AND !empty($url[4]):
-        echo 'Film numéro '.$url[4];
+    case $url[3] !== '':
+        http_response_code(404);
+        include "contenu_protégé/includes/404.html";
     break;
-    case $url[3] == 'film':
-        echo 'LA page des films';
+    case $url[4] !== '':
+        http_response_code(404);
+        include "contenu_protégé/includes/404.html";
     break;
     default:
-    http_response_code(404);
-    echo "404";
+        http_response_code(404);
+        include "contenu_protégé/includes/404.html";
     break;
     }
-
-    
 ?>
-
-
-<?php include_once 'includes/footer.php' ?>
