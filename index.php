@@ -10,19 +10,10 @@ if(isset($_SERVER['REQUEST_URI'])){
 
 var_dump($url);
 
-// if($url == ''){
-//     echo 'Home page';
-// } elseif($url[0] == 'film' AND !empty($url[1])){
-//     echo 'Film numéro '.$url[1];
-// }else {
-//     http_response_code(404);
-//     echo '404';
-// }
-
 switch ($url) {
     case $url[3] == '':   
         echo 'Home page';
-    break;    
+    break; 
     case $url[3] == 'film' AND !empty($url[4]):
         echo 'Film numéro '.$url[4];
     break;
@@ -35,6 +26,7 @@ switch ($url) {
     break;
     }
 
+    
 ?>
 
 
