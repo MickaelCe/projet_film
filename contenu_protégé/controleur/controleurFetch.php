@@ -1,4 +1,4 @@
-<?php include "contenu_protégé/pdo/connexion.php";
+<?php include "contenu_protégé/model/pdo.php";
 
 $rowTotal = 0;
 $search = "%{$_GET["search"]}%";
