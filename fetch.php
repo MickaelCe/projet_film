@@ -1,2 +1,2 @@
-<?php include "contenu_protégé/controleur/controleurFetch.php";?>
-<script src="contenu_protégé/assets/js/fetch.js"></script>
+<?php include "contenu_protege/controleur/controleurFetch.php";?>
+<script src="contenu_protege/assets/js/fetch.js"></script>

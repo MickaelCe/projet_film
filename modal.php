@@ -1,3 +1,3 @@
-<?php include "contenu_protégé/model/modelModal.php";?>
-<?php include "contenu_protégé/vue/vueModal.php";?>
-<script src="contenu_protégé/assets/js/modal.js"></script>
+<?php include "contenu_protege/model/modelModal.php";?>
+<?php include "contenu_protege/vue/vueModal.php";?>
+<script src="contenu_protege/assets/js/modal.js"></script>
