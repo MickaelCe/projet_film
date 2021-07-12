@@ -51,6 +51,7 @@ Etape 2:
 * CSS3
 * JS
 * PHP7
+* MYSQL
 
 ## ✍️ Collaborateurs <a name = "authors"></a>
 
