@@ -1,0 +1,4 @@
+AuthName "Page d'administration protégée"
+AuthType Basic
+AuthUserFile "/var/www/html/projet_film/projet_film/important/.htpasswd"
+Require valid-user
