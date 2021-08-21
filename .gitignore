@@ -1,3 +1,2 @@
-# Ignorer tous les fichiers nommés :
-
-pdo
+# Ignorer tous les fichiers nommés foo.txt
+pdo.php
