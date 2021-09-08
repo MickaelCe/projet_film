@@ -6,7 +6,7 @@ Projet pour l'ACS (Non commencé)
 
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://mickaelc.promo-66.codeur.online/projet_film/projet_film/contenu_protégé/assets/images/favicon.svg" alt="Project logo"></a>
+ <img width=200px height=200px src="https://mickaelc.promo-66.codeur.online/projet_film/projet_film/contenu_protege/assets/images/favicon.svg" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Projet Film</h3>
